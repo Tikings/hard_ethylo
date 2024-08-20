@@ -30,7 +30,7 @@ bool SENDING_DATA = 0;
 
 static int TIME_BTW_READ=200; // Time before entering the "decision tree"
 static long LAST_RECORD = 60000; // Initially setup to more than "HEATING TIME"s to allow the reading state at the beginning of the loop
-static int TIME_READING = 7000; // Time to read (= blowing)
+static int TIME_READING = 7000; // Time to read (= blowing) -> Little bit long to check
 static int HEATING_TIME = 10000; // Break before entering loop and after reading to let the sensor heat a bit (better reads)
 static int TIME_READ_HOLD = 1000; // Time the button 1 need to be held to launch the read. 
 
@@ -80,7 +80,7 @@ void connect_webSocket() {
 
 void setup() {
 
-  int nb_val = rint(TIME_READING / TIME_BTW_READ);
+  int nb_val = int(TIME_READING / TIME_BTW_READ);
 
   Serial.begin(115200);
   Serial.println("\n Starting Initialization");
